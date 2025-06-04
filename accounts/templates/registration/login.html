@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block title %}Login{%  endblock %}
+{% block content %}
+    <div class="container">
+        <h2>Login</h2>
+        <form method="post" action=""> <!-- Add your form action URL here -->
+            {% csrf_token %} <!-- If using Django templates -->
+            {{form | crispy }} <!-- If using Django templates -->
+
+{#            <div class="form-group">#}
+{#                <label for="username">Username:</label>#}
+{#                <input type="text" id="username" name="username" required>#}
+{#            </div>#}
+{##}
+{#            <div class="form-group">#}
+{#                <label for="password">Password:</label>#}
+{#                <input type="password" id="password" name="password" required>#}
+{#            </div>#}
+
+            <button type="submit" class="btn btn-primary"><b>LOGIN</b></button>
+
+{#            <div class="register-link">#}
+{#                <p>Don't have an account? <a href="#">Register here</a></p> <!-- Add your registration URL here -->#}
+{#            </div>#}
+        </form>
+    </div>
+{% endblock %}

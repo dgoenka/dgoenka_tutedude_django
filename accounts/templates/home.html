@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    {%  if user.is_authenticated %}
+        <div xmlns="http://www.w3.org/1999/html">
+         <form method="post" action="{%  url 'logout' %}">
+            {% csrf_token %}
+             <h2>Welcome, {{ user.username }}. <input type="submit"  class="mainlogin"  value="Logout"/></h2>
+         </form>
+     </div>
+    {%  else  %}
+        <div>
+            <h2>You are not logged in. <a class="mainlogin" href="{%  url 'login' %}">Login</a></h2>
+        </div>
+    {% endif %}
+{% endblock %}

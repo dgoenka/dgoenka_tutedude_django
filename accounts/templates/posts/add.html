@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block title %}{{ title }}{%  endblock %}
+{% block content %}
+    <div class="container">
+        <h2>Contact</h2>
+        <form method="post" action=""> <!-- Add your form action URL here -->
+            {% csrf_token %} <!-- If using Django templates -->
+            <ul class="no-bullets">
+                {{form | crispy }} <!-- If using Django templates -->
+            </ul>
+            <button type="submit" class="btn btn-primary"><b>Submit</b></button>
+        </form>
+    </div>
+{% endblock %}
